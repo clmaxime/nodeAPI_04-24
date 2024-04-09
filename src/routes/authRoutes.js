@@ -1,11 +1,11 @@
 import express from "express";
-import { signup } from "../controllers/authController.js";
+import { signin, signup } from "../controllers/authController.js";
 
 //import { body } from 'express-validator';
 
 const router = express.Router();
 
-//router.post("/signin", signin);
+router.post("/signin", signin);
 router.post("/signup", signup);
 
 export default router;

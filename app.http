@@ -17,6 +17,7 @@ DELETE http://localhost:3001/clothes/66150cf2fcc55f0a3ae5dc03
 
 ### 
 
+//Inscription
 POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
@@ -25,4 +26,16 @@ Content-Type: application/json
     "password": "superpass",
     "name": "testtfdfdf",
     "phoneNumber": "0600000000"
+}
+
+###
+
+//Connexion
+
+POST http://localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+    "email" : "test@example.com",
+    "password": "superpass"
 }
