@@ -1,14 +1,21 @@
+import "dotenv/config";
 import express from "express";
+import mongoose from "mongoose";
+import clothesRoutes from "./routes/clothesRoutes.js";
 
 const app = express();
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
+
+console.log("env: ", process.env.MONGO_STRING);
+const MONGO_STRING = process.env.MONGO_STRING;
 
 // Middlewares
 // Middleware qui permet de parser les donnees issues d'un formulaire
 app.use(express.json());
 
-app.use("/cars", carsRoutes);
+app.use("/clothes", clothesRoutes);
+
 
 /* 
  Routes definit une route Get sur / qui renvoie un message
@@ -22,6 +29,14 @@ app.get("/", (request, response) => {
   // JSON : Javascript Object Notation
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+
+
+mongoose.connect(MONGO_STRING).then(() => {
+    console.log('connexion reussie')
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+      });
+})
+
+
+

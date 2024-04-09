@@ -1,0 +1,16 @@
+GET http://localhost:3000/clothes
+
+###
+
+POST http://localhost:3000/clothes
+Content-Type: application/json
+
+{
+    "brand": "aeeeeeeee",
+    "price": 14,
+    "type": "pull"
+}
+
+###
+
+DELETE http://localhost:3001/clothes/66150cf2fcc55f0a3ae5dc03
