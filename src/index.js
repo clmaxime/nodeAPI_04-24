@@ -2,6 +2,7 @@ import "dotenv/config";
 import express from "express";
 import mongoose from "mongoose";
 import clothesRoutes from "./routes/clothesRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
 
 const app = express();
 
@@ -16,6 +17,8 @@ app.use(express.json());
 
 app.use("/clothes", clothesRoutes);
 
+app.use("/auth", authRoutes);
+
 
 /* 
  Routes definit une route Get sur / qui renvoie un message
@@ -28,7 +31,6 @@ app.get("/", (request, response) => {
   response.json({ message: "Hello World!" });
   // JSON : Javascript Object Notation
 });
-
 
 
 mongoose.connect(MONGO_STRING).then(() => {
