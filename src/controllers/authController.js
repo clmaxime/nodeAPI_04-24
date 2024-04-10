@@ -6,19 +6,19 @@ import jwt from "jsonwebtoken";
 export const signup = async (req, res, next) => {
   const { email, password, name, phoneNumber } = req.body;
   console.log(req.body);
-  // On va hasher le mot de passe
+  // hash du mot de passe
   const hashedPassword = await bcrypt.hash(password, 12);
-  // On cree un nouvel utilisateur
+  // création d'un nouvel utilisateur
   const newUser = new User({
     email,
     password: hashedPassword,
     name,
     phoneNumber,
   });
-  // On sauvegarde le nouvel utilisateur
+  // sauvegarde de l'utilisateur
   const doc = await newUser.save();
 
-  // si tout s'est bien passé, on renvoie un status 201
+  // si ok, on renvoie l'utilisateur en json
   res.status(201).json(doc);
 };
 
@@ -29,16 +29,16 @@ export const signin = async (req, res, next) => {
 
   // si l'utilisateur n'existe pas, on renvoie une erreur
   if (!user) {
-    res.status(400).json({ message: "Utilisateur introuvable, vérifiez l'email" });
-  }
-   else {
+    res
+      .status(400)
+      .json({ message: "Utilisateur introuvable, vérifiez l'email" });
+  } else {
     // si l'utilisateur existe, on compare les mots de passe
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
     if (!isPasswordValid) {
       res.status(400).json({ message: "Mot de passe incorrect" });
-    }
-    else{
+    } else {
       const token = jwt.sign(
         { email: user.email, id: user._id },
         process.env.JWT_SECRET,
@@ -48,10 +48,7 @@ export const signin = async (req, res, next) => {
       res.status(200).json({ token });
     }
   }
-    // si le mot de passe est invalide, on renvoie une erreur
+  // si le mot de passe est invalide, on renvoie une erreur
 
-    // sinon on genere un token
-
-
-
+  // sinon on genere un token
 };

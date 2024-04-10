@@ -1,30 +1,70 @@
+//Récupère tous les vêtements
 GET http://localhost:3000/clothes
 
 ###
 
+//Récupère un vêtement par son id
 GET http://localhost:3000/clothes/66150cf2fcc55f0a3ae5dc03
 
 ###
 
+//Crée un vêtement
 POST http://localhost:3000/clothes
 Content-Type: application/json
 
 {
-    "name": "nom2",
-    "brand": "brand",
-    "price": 16,
+    "name": "hoodie",
+    "brand": "marque",
+    "price": 20,
     "type": "sweat"
 }
 
 ###
 
-DELETE http://localhost:3001/clothes/66150cf2fcc55f0a3ae5dc03
+// Supprime un vêtement
+DELETE http://localhost:3000/clothes/6616ea62970a9b38aeb64647
+
+### /sales
+
+//Récupère les réductions (route protégée)
+GET http://localhost:3000/sales
+Content-Type: application/json
+Bearer-Authorization: {{$processEnv JWT_SECRET}}
 
 ###
-//Exclusivités (routes protégée)
+
+//Récupère les exclusivités (route protégée)
 GET http://localhost:3000/sales/exclusivities
 Content-Type: application/json
 Bearer-Authorization: {{$processEnv JWT_SECRET}}
+
+###
+
+//Crée une réduction
+POST http://localhost:3000/sales
+Content-Type: application/json
+
+{
+    "name": "promo",
+    "description": "lorem ipsum",
+    "price": 30,
+    "start_date": "april",
+    "exclusive": false
+}
+
+###
+
+//Crée une exclusivité
+POST http://localhost:3000/sales
+Content-Type: application/json
+
+{
+    "name": "promo",
+    "description": "lorem ipsum",
+    "price": 30,
+    "start_date": "april",
+    "exclusive": true
+}
 
 ### Authentification
 
@@ -42,7 +82,6 @@ Content-Type: application/json
 ###
 
 //Connexion
-
 POST http://localhost:3000/auth/signin
 Content-Type: application/json
 
