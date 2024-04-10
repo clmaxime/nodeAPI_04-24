@@ -22,9 +22,9 @@ DELETE http://localhost:3001/clothes/66150cf2fcc55f0a3ae5dc03
 
 ###
 //Exclusivités (routes protégée)
-GET http://localhost:3000/exclusivities
+GET http://localhost:3000/sales/exclusivities
 Content-Type: application/json
-Authorization: {{$processEnv JWT_SECRET}}
+Bearer-Authorization: {{$processEnv JWT_SECRET}}
 
 ### Authentification
 

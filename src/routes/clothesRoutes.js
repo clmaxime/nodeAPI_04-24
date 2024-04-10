@@ -6,7 +6,6 @@ import {
   getClothes,
   getClotheById,
   createProduct,
-  getExclusivities,
 } from "../controllers/clothesController.js";
 
 const router = express.Router();
@@ -17,9 +16,7 @@ router.get("/", getClothes);
 // GET http://localhost:3001/clothes/1
 router.get("/:id", getClotheById);
 
-// GET http://localhost:3001/clothes/exclusivities
-//pour voir les exclusivités, l'utilisateur doit être connecté
-router.get("/exclusivities", getExclusivities)
+
 
 router.post(
     "/",

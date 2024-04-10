@@ -28,16 +28,6 @@ export const getClotheById = (req, res) => {
     });
 };
 
-  export const getExclusivities = (req, res) => {
-    clotheModel.find()
-        .then((result) => {
-    })
-    .catch((error) => {
-        console.log(error);
-        throw new Error(error)
-    })
-  };
-
   export const createProduct = (request, response) => {
     const bodyContent = request.body;
     const errors = validationResult(request);
