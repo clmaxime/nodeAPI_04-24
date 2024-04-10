@@ -1,24 +1,10 @@
 import "dotenv/config";
 import express from "express";
 import mongoose from "mongoose";
-import clothesRoutes from "./routes/clothesRoutes.js";
-import authRoutes from "./routes/authRoutes.js";
-
-const app = express();
-
-const PORT = process.env.PORT || 3000;
-
-console.log("env: ", process.env.MONGO_STRING);
-const MONGO_STRING = process.env.MONGO_STRING;
-
-// Middlewares
-// Middleware qui permet de parser les donnees issues d'un formulaire
-app.use(express.json());
 
 app.use("/clothes", clothesRoutes);
 
 app.use("/auth", authRoutes);
-
 
 /* 
  Routes definit une route Get sur / qui renvoie un message
