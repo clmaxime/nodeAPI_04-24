@@ -28,7 +28,7 @@ app.use("/auth", authRoutes);
  request et response 
  */
 app.get("/", (request, response) => {
-  response.json({ message: "Hello World!" });
+  response.json({ message: "Bienvenue sur ce projet. Utilisez /clothes pour voir les vêtements, /signin, pour vous connecter et /signup pour vous inscrire" });
   // JSON : Javascript Object Notation
 });
 

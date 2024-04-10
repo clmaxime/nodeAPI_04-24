@@ -4,8 +4,9 @@ import auth from "../middlewares/auth.js";
 
 import {
   getClothes,
-  getClothe,
+  getClotheById,
   createProduct,
+  getExclusivities,
 } from "../controllers/clothesController.js";
 
 const router = express.Router();
@@ -14,15 +15,17 @@ const router = express.Router();
 router.get("/", getClothes);
 
 // GET http://localhost:3001/clothes/1
-router.get("/:id", getClothe);
+router.get("/:id", getClotheById);
 
-
+// GET http://localhost:3001/clothes/exclusivities
+//pour voir les exclusivités, l'utilisateur doit être connecté
+router.get("/exclusivities", getExclusivities)
 
 router.post(
     "/",
     [
-      body("brand").trim().isLength({ min: 20, max: 2 }),
-      body("type").trim().isLength({ min: 2, max: 100 }),
+      body("brand").trim().isLength({ min: 200, max: 1 }),
+      body("type").trim().isLength({ min: 1, max: 100 }),
     ],
     createProduct
   );

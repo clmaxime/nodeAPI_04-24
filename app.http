@@ -2,19 +2,27 @@ GET http://localhost:3000/clothes
 
 ###
 
+GET http://localhost:3000/clothes/66150cf2fcc55f0a3ae5dc03
+
+###
+
 POST http://localhost:3000/clothes
 Content-Type: application/json
 
 {
-    "brand": "aeeeeeeee",
-    "price": 14,
-    "type": "pull"
+    "name": "nom2",
+    "brand": "brand",
+    "price": 16,
+    "type": "sweat"
 }
 
 ###
 
 DELETE http://localhost:3001/clothes/66150cf2fcc55f0a3ae5dc03
 
+###
+//Exclusivités (routes protégée)
+GET http://localhost:3000/exclusivities
 
 
 ### Authentification
