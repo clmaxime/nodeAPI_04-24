@@ -1,5 +1,6 @@
-import express from "express";
+import express, { response } from "express";
 import { body } from "express-validator";
+import auth from "../middlewares/auth.js";
 
 import {
   getClothes,
@@ -9,11 +10,13 @@ import {
 
 const router = express.Router();
 
-// GET http://localhost:3001/cars
+// GET http://localhost:3001/clothes
 router.get("/", getClothes);
 
-// GET http://localhost:3001/cars/1
+// GET http://localhost:3001/clothes/1
 router.get("/:id", getClothe);
+
+
 
 router.post(
     "/",

@@ -26,6 +26,7 @@ export const getClothes = (req, res) => {
     }
   };
 
+
   export const createProduct = (request, response) => {
     const bodyContent = request.body;
     const errors = validationResult(request);

@@ -15,7 +15,9 @@ Content-Type: application/json
 
 DELETE http://localhost:3001/clothes/66150cf2fcc55f0a3ae5dc03
 
-### 
+
+
+### Authentification
 
 //Inscription
 POST http://localhost:3000/auth/signup
