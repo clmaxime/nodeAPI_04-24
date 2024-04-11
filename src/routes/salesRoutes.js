@@ -5,13 +5,15 @@ import {
   getExclusivities,
   getSales,
   createSale,
+  deleteSale,
+  editSale,
 } from "../controllers/salesController.js";
 import auth from "../middlewares/auth.js";
 
 const router = express.Router();
 
 //Voir toutes les réductions (route protégée)
-router.get("/sales", auth, getSales);
+router.get("/", auth, getSales);
 
 //Voir les exclusivités (route protégée)
 router.get("/exclusivities", auth, getExclusivities);
@@ -25,5 +27,11 @@ router.post(
   ],
   createSale
 );
+
+// DELETE Supprime une réduction
+router.delete("/:id", deleteSale);
+
+// PUT Modifie une réduction
+router.put("/:id", editSale);
 
 export default router;

@@ -51,7 +51,7 @@ Content-Type: application/json
 {
     "name": "promo",
     "description": "lorem ipsum",
-    "price": 30,
+    "percentage": 30,
     "start_date": "april",
     "exclusive": false
 }
@@ -70,6 +70,18 @@ Content-Type: application/json
     "exclusive": true
 }
 
+###
+
+// Supprime une réduction
+DELETE http://localhost:3000/sales/6616eed401e99c68ec794e37
+
+###
+
+// Modifie une réduction
+PUT http://localhost:3000/sales/6617a8529243a95c0f060fc0
+
+
+
 ### Authentification
 
 //Inscription
@@ -77,9 +89,9 @@ POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-    "email" : "email@b.com",
-    "password": "a",
-    "name": "testtfdfdf",
+    "email" : "registertest@a.com",
+    "password": "1MdpSecurise_",
+    "name": "afdfdfdsfds",
     "phoneNumber": "0600000000"
 }
 
@@ -90,6 +102,6 @@ POST http://localhost:3000/auth/signin
 Content-Type: application/json
 
 {
-    "email" : "test@example.com",
-    "password": "superpass"
+    "email" : "registertest@a.com",
+    "password": "1MdpSecurise_"
 }

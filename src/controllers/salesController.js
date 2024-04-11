@@ -25,8 +25,7 @@ export const getExclusivities = (req, res) => {
     .find({})
     .select("name")
     .select("description")
-    .select("price")
-    .select("exclusive")
+    .select("percentage")
     .select("start_date")
     .where("exclusive")
     .then((result) => {
@@ -41,6 +40,7 @@ export const getExclusivities = (req, res) => {
 //Crée une réduction
 export const createSale = (request, response) => {
   const bodyContent = request.body;
+  console.log(bodyContent);
   const errors = validationResult(request);
   console.log(errors);
 
@@ -55,4 +55,29 @@ export const createSale = (request, response) => {
       console.log(error);
       throw new Error(error);
     });
+};
+
+//Supprime une réduction
+export const deleteSale = async (request, response) => {
+  const id = request.params.id;
+  const sale = await salesModel.findOne({_id: id});
+  if (sale) {
+   await salesModel.deleteOne({_id: id});
+    response.json(salesModel);
+  } else {
+    response.status(404).json({ message: "Sale not found" });
+  }
+};
+
+//Edite une réduction
+export const editSale = async (request, response) => {
+  const id = request.params.id;
+  const sale = await salesModel.findOne({_id: id});
+  if (sale) {
+   await salesModel.updateOne({percentage: 60}); //modifie le pourcentage à 60
+   response.json(salesModel);
+    response.status(204).end();
+  } else {
+    response.status(404).json({ message: "Sale not found" });
+  }
 };
