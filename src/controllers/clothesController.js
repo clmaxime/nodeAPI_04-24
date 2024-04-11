@@ -56,13 +56,14 @@ export const createProduct = (request, response) => {
 };
 
 //Supprime un vêtement
-export const deleteClothe = (request, response) => {
-  const id = parseInt(request.params.id, 10);
-  const clothe = clotheModel.find((clothe) => clothe.id === id);
+export const deleteClothe = async (request, response) => {
+  const id = request.params.id;
+  const clothe = await clotheModel.findOne({_id: id});
   if (clothe) {
-    mockCars = mockCars.filter((clothe) => clothe.id !== id);
-    response.status(204).end();
+   await clotheModel.deleteOne({_id: id});
+    //response.status(204).end();
+    response.json(clotheModel);
   } else {
-    response.status(404).json({ message: "Car not found" });
+    response.status(404).json({ message: "Clothe not found" });
   }
 };
