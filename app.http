@@ -21,7 +21,12 @@ Content-Type: application/json
 ###
 
 // Supprime un vêtement
-DELETE http://localhost:3000/clothes/6616ea62970a9b38aeb64647
+DELETE http://localhost:3000/clothes/661669ed32d59ff63e863936
+
+###
+
+// Modifie un vêtement
+PUT http://localhost:3000/clothes/66166a2032d59ff63e863939
 
 ### /sales
 

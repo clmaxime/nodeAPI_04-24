@@ -61,6 +61,18 @@ export const deleteClothe = async (request, response) => {
   const clothe = await clotheModel.findOne({_id: id});
   if (clothe) {
    await clotheModel.deleteOne({_id: id});
+    response.json(clotheModel);
+  } else {
+    response.status(404).json({ message: "Clothe not found" });
+  }
+};
+
+//Edite un vêtement
+export const editClothe = async (request, response) => {
+  const id = request.params.id;
+  const clothe = await clotheModel.findOne({_id: id});
+  if (clothe) {
+   await clotheModel.updateOne({name: "nouveaunom"});
     //response.status(204).end();
     response.json(clotheModel);
   } else {

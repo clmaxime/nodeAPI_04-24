@@ -7,6 +7,7 @@ import {
   getClotheById,
   createProduct,
   deleteClothe,
+  editClothe,
 } from "../controllers/clothesController.js";
 
 const router = express.Router();
@@ -27,6 +28,11 @@ router.post(
   createProduct
 );
 
+// DELETE Supprime un vêtement
 router.delete("/:id", deleteClothe);
+
+
+// PUT Modifie un vêtement
+router.put("/:id", editClothe);
 
 export default router;
