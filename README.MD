@@ -6,13 +6,36 @@ Ce projet en NodeJS est un catalogue de vêtements avec des réductions.
 
 - Express
 - Express-validator
-- Nodemon
 - Dotenv
 - Jsonwebtoken
 - Mongoose
 - Multer
 - Body-parser
 
+## Dépendances Dev :
+- @babel/core
+- @babel/node
+- @babel/preset-env
+- @types/jest
+- Jest
+- Nodemon
+- Supertest
 
-Au post de sales et exclusive formatter: [Function: formatter],
-Faire delete de sales et exclusive
+## Installation du projet :
+##### Cloner le projet
+```
+git clone
+```
+##### Alelr dans le répertoire du projet
+```
+cd projet
+```
+##### Installer les dépendances
+```
+npm install
+```
+##### Lancer le projet
+```
+npm run start:dev
+```
+
