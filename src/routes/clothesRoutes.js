@@ -31,7 +31,16 @@ router.post(
 // DELETE Supprime un vêtement
 router.delete("/:id", deleteClothe);
 
-
+/**
+ * @swagger
+ * /clothes/:id:
+ *   get:
+ *     summary: Modification d'un vêtement
+ *     description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+ *     responses:
+ *       200:
+ *         description: Succès
+ */
 // PUT Modifie un vêtement
 router.put("/:id", editClothe);
 
