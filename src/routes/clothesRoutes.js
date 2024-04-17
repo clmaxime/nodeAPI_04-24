@@ -33,15 +33,14 @@ router.delete("/:id", deleteClothe);
 
 /**
  * @swagger
- * /clothes/:id:
- *   get:
- *     summary: Modification d'un vêtement
- *     description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+ * /doc:
+ *   put:
+ *     summary: Titre
+ *     description: Description de la route
  *     responses:
  *       200:
  *         description: Succès
  */
-// PUT Modifie un vêtement
 router.put("/:id", editClothe);
 
 export default router;

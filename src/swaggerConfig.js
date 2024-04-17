@@ -8,7 +8,7 @@ const options = {
       description: "Bienvenue sur la doc de l'API NodeJS",
     },
   },
-  apis: ["./routes/*.mjs"],
+  apis: ["/routes/clothesRoute.js"],
 };
 
 const specs = swaggerJsdoc(options);

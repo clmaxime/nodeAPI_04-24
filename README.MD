@@ -13,6 +13,7 @@ Ce projet en NodeJS est un catalogue de vêtements avec des réductions.
 - Body-parser
 
 ## Dépendances Dev :
+
 - @babel/core
 - @babel/node
 - @babel/preset-env
@@ -22,20 +23,31 @@ Ce projet en NodeJS est un catalogue de vêtements avec des réductions.
 - Supertest
 
 ## Installation du projet :
+
 ##### Cloner le projet
+
 ```
 git clone
 ```
+
 ##### Alelr dans le répertoire du projet
+
 ```
 cd projet
 ```
+
 ##### Installer les dépendances
+
 ```
 npm install
 ```
+
 ##### Lancer le projet
+
 ```
 npm run start:dev
 ```
 
+##### Base de données
+
+N'oubliez pas de changer la base avec vos informations Mongo

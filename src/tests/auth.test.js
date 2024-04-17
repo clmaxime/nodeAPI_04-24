@@ -36,7 +36,6 @@ describe("creation d'un utilisateur et login", () => {
   });
 
   afterAll(async () => {
-    // Supprime les utilisateurs des tests créés
     await user.deleteOne({ email: "test" });
     await mongoose.connection.close();
   });
